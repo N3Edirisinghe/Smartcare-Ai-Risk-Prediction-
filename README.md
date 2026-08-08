@@ -261,11 +261,11 @@ Merges into `develop` follow pipeline dependency order, since each stage consume
 
 | Student ID | Contributor | Responsibility |
 |---|---|---|
-| CIT-23-02-0021 | [Thrithwaka](https://github.com/Thrithwaka) | Data preprocessing and feature engineering |
-| CIT-23-02-0025 | [Avishka](https://github.com/deshanavishka125-dot) | Exploratory data analysis |
+| CIT-23-02-0021 | [Thrithwaka](https://github.com/Thrithwaka) | Model evaluation and selection |
+| CIT-23-02-0025 | [Avishka](https://github.com/deshanavishka125-dot) | Explainable AI analysis and prototype development |
 | CIT-23-02-0042 | [Chanu](https://github.com/Anuradhi-Gunawardhana) | Model development and hyperparameter tuning |
-| CIT-23-02-0127 | [Ramda](https://github.com/Ramda) | Model evaluation and selection |
-| CIT-23-02-0359 | [Tharindu](https://github.com/nvtharindukothalawala-tech) | Explainable AI analysis and prototype development |
+| CIT-23-02-0127 | [Ramda](https://github.com/Ramda) | Data preprocessing and feature engineering |
+| CIT-23-02-0359 | [Tharindu](https://github.com/nvtharindukothalawala-tech) | Exploratory data analysis |
 
 Detailed individual contribution records are maintained in `docs/individual_contributions.md`.
 
