@@ -62,10 +62,10 @@ The dataset encompasses 1,000 patient records structured across 4 primary domain
 
 | Domain | Key Attributes |
 |---|---|
-| 👤 **Patient Demographics** | Patient ID, Age, Gender, Blood Group |
-| 🩺 **Clinical Information** | Diagnosis, Blood Pressure, Blood Sugar, Cholesterol, BMI |
-| 🏥 **Hospital Operations** | Department, Appointment History, Previous Admissions, Length of Stay, Room Type, Treatment Count, Lab Test Count |
-| 💳 **Financial Attributes** | Consultation Charges, Lab Charges, Room Charges, Medicine Charges, Total Bill Amount |
+| <nobr>👤 <b>Patient Demographics</b></nobr> | `Patient ID` • `Age` • `Gender` • `Blood Group` |
+| <nobr>🩺 <b>Clinical Information</b></nobr> | `Diagnosis` • `Blood Pressure` • `Blood Sugar` • `Cholesterol` • `BMI` |
+| <nobr>🏥 <b>Hospital Operations</b></nobr> | `Department` • `Appointment History` • `Previous Admissions` • `Length of Stay` • `Room Type` • `Treatment Count` • `Lab Test Count` |
+| <nobr>💳 <b>Financial Attributes</b></nobr> | `Consultation Charges` • `Lab Charges` • `Room Charges` • `Medicine Charges` • `Total Bill Amount` |
 
 *Note: Raw dataset files belong under `data/raw/` (unversioned).*
 
