@@ -1,4 +1,4 @@
-# 🏥 SmartCare Hospital AI — Disease Risk Classification System
+# 🏥 SmartCare AI — Disease Risk Classification System
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
