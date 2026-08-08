@@ -259,13 +259,13 @@ Merges into `develop` follow pipeline dependency order, since each stage consume
 
 ## Team
 
-| Student ID | Name | Contributor | Responsibility |
-|---|---|---|---|
-| CIT-23-02-0021 | Nilupul Thisaranga | [Thrithwaka](https://github.com/Thrithwaka) | Model evaluation and selection |
-| CIT-23-02-0025 | Siluna Nusal | [Avishka](https://github.com/deshanavishka125-dot) | Explainable AI analysis and prototype development |
-| CIT-23-02-0042 | Dulani Madubashini | [Chanu](https://github.com/Anuradhi-Gunawardhana) | Model development and hyperparameter tuning |
-| CIT-23-02-0127 | Kaveesha Dilshan | [Ramda](https://github.com/Ramda) | Data preprocessing and feature engineering |
-| CIT-23-02-0359 | Zumra Hassan | [Tharindu](https://github.com/nvtharindukothalawala-tech) | Exploratory data analysis |
+| Student ID | Contributor | Responsibility |
+|---|---|---|
+| CIT-23-02-0021 | [Nilupul Thisaranga](https://github.com/N3Edirisinghe) | Model evaluation and selection |
+| CIT-23-02-0025 | [Siluna Nusal](https://github.com/GitGuru29) | Explainable AI analysis and prototype development |
+| CIT-23-02-0042 | [Dulani Madubashini](https://github.com/Anuradhi-Gunawardhana) | Model development and hyperparameter tuning |
+| CIT-23-02-0127 | [Kaveesha Dilshan](https://github.com/Ramda) | Data preprocessing and feature engineering |
+| CIT-23-02-0359 | [Zumra Hassan](https://github.com/nvtharindukothalawala-tech) | Exploratory data analysis |
 
 Detailed individual contribution records are maintained in `docs/individual_contributions.md`.
 
