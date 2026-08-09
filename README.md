@@ -231,9 +231,9 @@ streamlit run app/app.py
 |---|---|---|---|
 | **CIT-23-02-0021** | Nilupul Thisaranga | [@N3Edirisinghe](https://github.com/N3Edirisinghe) | Model Evaluation & Selection |
 | **CIT-23-02-0025** | Siluna Nusal | [@GitGuru29](https://github.com/GitGuru29) | Explainable AI (XAI) & Prototype |
-| **CIT-23-02-0042** | Dulani Madubashini | [@cobweb-sudo](https://github.com/cobweb-sudo) | Model Development & Tuning |
+| **CIT-23-02-0042** | Dulani Madubashini | [@cobweb-sudo](https://github.com/cobweb-sudo) |Exploratory Data Analysis (EDA)|
 | **CIT-23-02-0127** | Kaveesha Dilshan | [@Kaveesha23dil](https://github.com/Kaveesha23dil) | Data Preprocessing & Feature Engineering |
-| **CIT-23-02-0359** | Zumra Hassan | [@Zumrahassan222](https://github.com/Zumrahassan222) | Exploratory Data Analysis (EDA) |
+| **CIT-23-02-0359** | Zumra Hassan | [@Zumrahassan222](https://github.com/Zumrahassan222) |Model Development & Tuning |
 
 ---
 
