@@ -126,8 +126,8 @@ Smartcare-Ai-Risk-Prediction-/
 │   └── processed/              # Preprocessed & engineered CSV datasets
 ├── models/                     # Saved model artifacts (.pkl files)
 ├── notebooks/                  # Step-by-step Jupyter analysis notebooks
-│   ├── 02_preprocessing.ipynb
-│   ├── 03_exploratory_data_analysis.ipynb
+│   ├── 01_Data Preprocessing And Feature Engineering.ipynb
+│   ├── 02_Exploratory Data Analysis.ipynb
 │   ├── 03_Model-Evaluation-&-Selection.ipynb
 │   ├── 04_model_development.ipynb
 │   └── 05_xai_analysis.ipynb
