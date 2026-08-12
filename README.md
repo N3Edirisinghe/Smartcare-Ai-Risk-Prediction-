@@ -1,4 +1,4 @@
-# 🏥 SmartCare AI — Option A: Patient Appointment No-Show Prediction System
+# 🏥 SmartCare AI — Patient Appointment No-Show Prediction System
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
