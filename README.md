@@ -120,39 +120,6 @@ The dataset consists of **1,000 patient records** containing demographic, clinic
 
 ---
 
-## 📈 Task 06 — Model Evaluation & Selection
-
-In **Task 06**, performance evaluation was carried out across candidate classifiers for Option A to determine the best performing model for deployment.
-
-### 1️⃣ Performance Comparison Table
-
-| Model Classifier | Accuracy (%) | Precision (%) | Recall (%) | F1 Score (%) | ROC-AUC (%) | Selection Status |
-|---|---|---|---|---|---|---|
-| 🏆 **Logistic Regression** | **50.62%** | **50.00%** | **40.51%** | **44.76%** | **54.85%** | ⭐ **Selected Best Model** |
-| 🌲 **Decision Tree** | 52.50% | 52.73% | 36.71% | 43.28% | 49.99% | Evaluated Candidate |
-| 🌳 **Random Forest** | 48.75% | 47.37% | 34.18% | 39.71% | 50.16% | Evaluated Candidate |
-
-### 2️⃣ Model Selection Rationale
-- **Selected Model:** `Logistic Regression` (Saved as [`models/best_model.pkl`](models/best_model.pkl))
-- **Key Metric Drivers:** Selected based on **F1 Score** (44.76%) and **ROC-AUC** (54.85%), delivering the optimal balance between precision and recall while achieving superior discriminative capacity for binary appointment no-show prediction.
-
-### 3️⃣ Selected Hyperparameters
-
-| Model | Hyperparameter Configuration |
-|---|---|
-| **Logistic Regression** | `max_iter=1000, random_state=42` |
-| **Decision Tree** | `max_depth=10, min_samples_split=5, min_samples_leaf=2, random_state=42` |
-| **Random Forest** | `n_estimators=200, max_depth=15, min_samples_split=5, min_samples_leaf=2, random_state=42` |
-
-### 4️⃣ Task 06 Deliverables & Artifacts
-- 📓 **Jupyter Evaluation Notebook:** [`notebooks/03_Model-Evaluation-&-Selection.ipynb`](notebooks/03_Model-Evaluation-&-Selection.ipynb)
-- 💾 **Best Model Artifact:** [`models/best_model.pkl`](models/best_model.pkl)
-- 📊 **Evaluation CSV Reports:**
-  - [`reports/task06_evaluation_results.csv`](reports/task06_evaluation_results.csv)
-  - [`reports/task06_evaluation_percentage.csv`](reports/task06_evaluation_percentage.csv)
-  - [`reports/task06_hyperparameter_summary.csv`](reports/task06_hyperparameter_summary.csv)
-
----
 
 ## 📂 Project Structure
 
