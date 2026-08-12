@@ -1,12 +1,13 @@
-# 🏥 SmartCare AI — Disease Risk Classification System
+# 🏥 SmartCare AI — Option A: Patient Appointment No-Show Prediction System
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![SHAP](https://img.shields.io/badge/SHAP-Explainable%20AI-green.svg)](https://shap.readthedocs.io/)
-[![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![SHAP](https://img.shields.io/badge/SHAP-Explainable%20AI-008080.svg)](https://shap.readthedocs.io/)
+[![License](https://img.shields.io/badge/License-MIT-750014.svg)](LICENSE)
+[![Task](https://img.shields.io/badge/Option%20A-No--Show%20Prediction-blue.svg)](#)
 
-An end-to-end Machine Learning system engineered to classify hospital patients into disease risk categories (**Low**, **Medium**, **High**) using clinical, demographic, and financial data. Designed for clinical decision support with high interpretability and interactive prototype deployment.
+An enterprise-grade **Machine Learning System** specifically engineered for **Option A: Patient Appointment No-Show Prediction**. The system classifies hospital appointments into **Show-Up Likely** (`0`) vs. **No-Show Likely** (`1`) using clinical, demographic, operational, and historical attendance metrics to optimize hospital scheduling and reduce non-attendance rates.
 
 ---
 
@@ -16,12 +17,12 @@ An end-to-end Machine Learning system engineered to classify hospital patients i
 - [Key Features](#-key-features)
 - [Problem Statement](#-problem-statement)
 - [Dataset Overview](#-dataset-overview)
-- [Task 06 — Model Evaluation & Selection](#-task-06--model-evaluation--selection-results)
 - [System Architecture](#-system-architecture)
+- [Task 06 — Model Evaluation & Selection](#-task-06--model-evaluation--selection)
 - [Project Structure](#-project-structure)
 - [Tech Stack](#-tech-stack)
 - [Getting Started](#-getting-started)
-- [Running the Web App](#-running-the-web-app)
+- [Running the Streamlit Prototype](#-running-the-streamlit-prototype)
 - [Project Team](#-project-team)
 - [License](#-license)
 
@@ -29,79 +30,50 @@ An end-to-end Machine Learning system engineered to classify hospital patients i
 
 ## 🔍 Overview
 
-Healthcare providers handle vast volumes of patient and clinical data. Extracting actionable, real-time risk predictions requires structured, validated machine learning workflows rather than static analysis.
+Hospital appointment non-attendance (**No-Show**) is a major operational challenge in healthcare, causing schedule inefficiencies, underutilized medical staff, increased wait times for other patients, and substantial financial revenue loss.
 
-**SmartCare AI** delivers a complete, reproducible ML pipeline — from automated preprocessing and EDA to model training, evaluation, SHAP explainability analysis, and a user-friendly Streamlit web prototype.
+**SmartCare AI (Option A)** provides an end-to-end, automated machine learning pipeline to accurately forecast whether a patient will miss their scheduled appointment. By identifying high-risk no-show cases in advance, hospital administration can take proactive intervention measures — such as automated reminder alerts, standby slot allocations, and intelligent overbooking strategies.
 
 ---
 
 ## ✨ Key Features
 
-- ⚙️ **Automated Data Preprocessing**: Cleaning, scaling, and categorical encoding pipelines.
-- 📊 **Exploratory Data Analysis (EDA)**: Correlation matrices, statistical profiling, and feature distribution plots.
-- 🤖 **Multi-Model Machine Learning**: Comparative evaluation across Logistic Regression, Random Forest, and XGBoost classifiers.
-- 💡 **Explainable AI (SHAP)**: Global and local SHAP explanations for transparent clinical decision support.
-- 🖥️ **Interactive Streamlit Prototype**: Real-time risk assessment web application for clinical input.
-- 🧱 **Modular Architecture**: Clean, reusable Python modules under `src/` decoupled from notebooks.
+- ⚙️ **Automated Data Preprocessing**: Cleaning, scaling (StandardScaler), handling missing values, and categorical encoding (One-Hot & Ordinal Encoding).
+- 📊 **Exploratory Data Analysis (EDA)**: Statistical profiling, feature correlation analysis, attendance patterns across age/waiting days, and class distribution checks.
+- 🤖 **Multi-Model ML Pipeline**: Training and tuning Logistic Regression, Decision Tree, and Random Forest classifiers for binary no-show prediction.
+- 🏆 **Task 06 Model Evaluation**: Rigorous evaluation using Accuracy, Precision, Recall, F1 Score, and ROC-AUC metrics.
+- 💡 **Explainable AI (SHAP)**: Global feature importance and local SHAP force plots to understand key drivers influencing patient no-shows.
+- 🖥️ **Interactive Streamlit Prototype**: Intuitive web interface for entering patient parameters and predicting real-time no-show probability.
+- 🧱 **Modular Architecture**: Decoupled Python packages under `src/` ensuring clean code reusability across notebooks and web apps.
 
 ---
 
-## 🎯 Problem Statement
+## 🎯 Problem Statement (Option A)
 
-Manual patient risk classification in high-volume hospital environments is often subject to human inconsistency and delays. 
+Manual tracking of patient attendance leads to unexpected appointment gaps and clinic downtime.
 
-SmartCare AI solves this by predicting patient disease risk automatically:
-- **Task Type:** Multi-Class Supervised Classification
-- **Target Variable:** `disease_risk_level`
-- **Output Classes:** `Low` | `Medium` | `High`
+**SmartCare AI — Option A** solves this through automated binary risk classification:
+- **Task Type**: Binary Supervised Classification
+- **Target Variable**: `no_show`
+- **Output Classes**:
+  - `0` — **Low Risk (Show-Up Likely)**: Patient is expected to attend the appointment.
+  - `1` — **High Risk (No-Show Likely)**: Patient is at risk of missing the appointment.
 
 ---
 
 ## 📊 Dataset Overview
 
-The dataset encompasses 1,000 patient records structured across 4 primary domains:
+The dataset consists of **1,000 patient records** containing demographic, clinical, and historical appointment scheduling features:
 
-| Domain | Key Attributes |
+| Feature Category | Attributes & Variables |
 |---|---|
-| 👤&nbsp;**Patient&nbsp;Demographics** | Patient ID, Age, Gender, Blood Group |
-| 🩺&nbsp;**Clinical&nbsp;Information** | Diagnosis, Blood Pressure, Blood Sugar, Cholesterol, BMI |
-| 🏥&nbsp;**Hospital&nbsp;Operations** | Department, Appointment History, Previous Admissions, Length of Stay, Room Type, Treatment Count, Lab Test Count |
-| 💳&nbsp;**Financial&nbsp;Attributes** | Consultation Charges, Lab Charges, Room Charges, Medicine Charges, Total Bill Amount |
+| 👤 **Patient Demographics** | Age, Gender, Blood Group |
+| 🩺 **Clinical Metrics** | Systolic BP, Diastolic BP, BP Category, Blood Sugar (mg/dL), Cholesterol (mg/dL), BMI, Diagnosis |
+| 🗓️ **Scheduling & History** | Waiting Days, Appointment Month, Day of Week, Previous Appointments Count, Missed Appointments Count, Previous Missed Rate, Has Previous Appointment |
+| 🏥 **Hospital Context** | Department |
+| 🎯 **Target Variable** | `no_show` (0 = Attended / Show-Up, 1 = Missed / No-Show) |
 
-*Note: Raw dataset files belong under `data/raw/` (unversioned).*
-
----
-
-## 📈 Task 06 — Model Evaluation & Selection Results
-
-In **Task 06**, a comprehensive performance assessment and comparative evaluation were conducted across three classification models (**Logistic Regression**, **Decision Tree**, and **Random Forest**).
-
-### 1️⃣ Performance Comparison Table
-
-| Model | Accuracy (%) | Precision (%) | Recall (%) | F1 Score (%) | ROC-AUC (%) | Status / Selection |
-|---|---|---|---|---|---|---|
-| 🏆 **Logistic Regression** | **50.62%** | **50.00%** | **40.51%** | **44.76%** | **54.85%** | **Selected Best Model** |
-| 🌲 **Decision Tree** | 52.50% | 52.73% | 36.71% | 43.28% | 49.99% | Evaluated |
-| 🌳 **Random Forest** | 48.75% | 47.37% | 34.18% | 39.71% | 50.16% | Evaluated |
-
-### 2️⃣ Selected Model & Justification
-- **Best Model:** `Logistic Regression` (Saved as [`models/best_model.pkl`](models/best_model.pkl))
-- **Selection Criteria:** Evaluated based on **F1 Score** (0.4476 / 44.76%) and **ROC-AUC** (0.5485 / 54.85%), delivering the optimal balance between precision and recall while achieving the highest discriminative power under the ROC curve.
-
-### 3️⃣ Selected Model Hyperparameters
-| Model | Selected Hyperparameters |
-|---|---|
-| **Logistic Regression** | `max_iter=1000, random_state=42` |
-| **Decision Tree** | `max_depth=10, min_samples_split=5, min_samples_leaf=2, random_state=42` |
-| **Random Forest** | `n_estimators=200, max_depth=15, min_samples_split=5, min_samples_leaf=2, random_state=42` |
-
-### 4️⃣ Task 06 Deliverables & Artifacts
-- 📓 **Jupyter Notebook:** [`notebooks/03_Model-Evaluation-&-Selection.ipynb`](notebooks/03_Model-Evaluation-&-Selection.ipynb) / [`notebooks/Task_06_Model_Evaluation.ipynb`](notebooks/Task_06_Model_Evaluation.ipynb)
-- 💾 **Best Model Artifact:** [`models/best_model.pkl`](models/best_model.pkl)
-- 📊 **Evaluation CSV Reports:**
-  - [`reports/task06_evaluation_results.csv`](reports/task06_evaluation_results.csv)
-  - [`reports/task06_evaluation_percentage.csv`](reports/task06_evaluation_percentage.csv)
-  - [`reports/task06_hyperparameter_summary.csv`](reports/task06_hyperparameter_summary.csv)
+*Note: Raw datasets belong under `data/raw/` (git-ignored).*
 
 ---
 
@@ -109,12 +81,12 @@ In **Task 06**, a comprehensive performance assessment and comparative evaluatio
 
 ```text
        ┌────────────────────────┐
-       │     Raw Dataset        │
+       │      Raw Dataset       │
        └───────────┬────────────┘
                    │
                    ▼
        ┌────────────────────────┐
-       │ Data Preprocessing &   │ ──► data/processed/*.csv
+       │ Data Preprocessing &   │ ──► data/processed/smartcare_final_preprocessed_dataset.csv
        │ Feature Engineering    │
        └───────────┬────────────┘
                    │
@@ -125,14 +97,14 @@ In **Task 06**, a comprehensive performance assessment and comparative evaluatio
                    │
                    ▼
        ┌────────────────────────┐
-       │ Model Training &       │ ──► models/*.pkl
-       │ Hyperparameter Tuning  │
-       └───────────┬────────────┘
+       │ Model Training &       │ ──► models/logistic_regression.pkl
+       │ Hyperparameter Tuning  │     models/decision_tree.pkl
+       └───────────┬────────────┘     models/random_forest.pkl
                    │
                    ▼
        ┌────────────────────────┐
-       │ Model Evaluation &     │ ──► reports/model_comparison_table.csv
-       │ Best Model Selection   │     models/best_model.pkl
+       │ Model Evaluation &     │ ──► reports/task06_evaluation_results.csv
+       │ Best Model Selection   │ ──► models/best_model.pkl
        └───────────┬────────────┘
                    │
                    ▼
@@ -142,9 +114,43 @@ In **Task 06**, a comprehensive performance assessment and comparative evaluatio
                    │
                    ▼
        ┌────────────────────────┐
-       │ Streamlit Prototype    │ ──► Interactive Web Dashboard
+       │ Streamlit Prototype    │ ──► Real-Time No-Show Risk Dashboard
        └────────────────────────┘
 ```
+
+---
+
+## 📈 Task 06 — Model Evaluation & Selection
+
+In **Task 06**, performance evaluation was carried out across candidate classifiers for Option A to determine the best performing model for deployment.
+
+### 1️⃣ Performance Comparison Table
+
+| Model Classifier | Accuracy (%) | Precision (%) | Recall (%) | F1 Score (%) | ROC-AUC (%) | Selection Status |
+|---|---|---|---|---|---|---|
+| 🏆 **Logistic Regression** | **50.62%** | **50.00%** | **40.51%** | **44.76%** | **54.85%** | ⭐ **Selected Best Model** |
+| 🌲 **Decision Tree** | 52.50% | 52.73% | 36.71% | 43.28% | 49.99% | Evaluated Candidate |
+| 🌳 **Random Forest** | 48.75% | 47.37% | 34.18% | 39.71% | 50.16% | Evaluated Candidate |
+
+### 2️⃣ Model Selection Rationale
+- **Selected Model:** `Logistic Regression` (Saved as [`models/best_model.pkl`](models/best_model.pkl))
+- **Key Metric Drivers:** Selected based on **F1 Score** (44.76%) and **ROC-AUC** (54.85%), delivering the optimal balance between precision and recall while achieving superior discriminative capacity for binary appointment no-show prediction.
+
+### 3️⃣ Selected Hyperparameters
+
+| Model | Hyperparameter Configuration |
+|---|---|
+| **Logistic Regression** | `max_iter=1000, random_state=42` |
+| **Decision Tree** | `max_depth=10, min_samples_split=5, min_samples_leaf=2, random_state=42` |
+| **Random Forest** | `n_estimators=200, max_depth=15, min_samples_split=5, min_samples_leaf=2, random_state=42` |
+
+### 4️⃣ Task 06 Deliverables & Artifacts
+- 📓 **Jupyter Evaluation Notebook:** [`notebooks/03_Model-Evaluation-&-Selection.ipynb`](notebooks/03_Model-Evaluation-&-Selection.ipynb)
+- 💾 **Best Model Artifact:** [`models/best_model.pkl`](models/best_model.pkl)
+- 📊 **Evaluation CSV Reports:**
+  - [`reports/task06_evaluation_results.csv`](reports/task06_evaluation_results.csv)
+  - [`reports/task06_evaluation_percentage.csv`](reports/task06_evaluation_percentage.csv)
+  - [`reports/task06_hyperparameter_summary.csv`](reports/task06_hyperparameter_summary.csv)
 
 ---
 
@@ -153,22 +159,29 @@ In **Task 06**, a comprehensive performance assessment and comparative evaluatio
 ```text
 Smartcare-Ai-Risk-Prediction-/
 ├── app/                        # Interactive Streamlit prediction dashboard
-│   ├── app.py                  # Main Streamlit web application entry point
-│   └── components/             # Reusable UI components
+│   ├── app.py                  # Streamlit entry point for real-time inference
+│   └── components/             # Custom UI widgets and components
 ├── data/
-│   ├── raw/                    # Raw dataset & dictionary (local unversioned)
-│   └── processed/              # Preprocessed & engineered CSV datasets
+│   ├── raw/                    # Raw dataset and data dictionary (unversioned)
+│   └── processed/              # Preprocessed & engineered dataset files
 ├── models/                     # Saved model artifacts (.pkl files)
-├── notebooks/                  # Step-by-step Jupyter analysis notebooks
+│   ├── best_model.pkl          # Selected best performing model (Logistic Regression)
+│   ├── decision_tree.pkl       # Decision Tree model artifact
+│   ├── logistic_regression.pkl # Logistic Regression model artifact
+│   └── random_forest.pkl       # Random Forest model artifact
+├── notebooks/                  # Execution notebooks by project task
 │   ├── 01_Data Preprocessing And Feature Engineering.ipynb
 │   ├── 02_Exploratory Data Analysis.ipynb
 │   ├── 03_Model-Evaluation-&-Selection.ipynb
 │   ├── 04_model_development.ipynb
 │   └── 05_xai_analysis.ipynb
-├── presentation/               # Project presentation slides & assets
-├── reports/                    # Generated charts, tables, & evaluation reports
+├── presentation/               # Project slides & presentation documentation
+├── reports/                    # Generated evaluation charts, matrices, & tables
+│   ├── task06_evaluation_results.csv
+│   ├── task06_evaluation_percentage.csv
+│   └── task06_hyperparameter_summary.csv
 ├── src/                        # Modular, production-ready Python source code
-│   ├── data/                   # Dataset loader & validation scripts
+│   ├── data/                   # Dataset loader & validation modules
 │   │   ├── dataset_info.py
 │   │   ├── loader.py
 │   │   └── validator.py
@@ -177,38 +190,38 @@ Smartcare-Ai-Risk-Prediction-/
 │   │   ├── distributions.py
 │   │   ├── statistics.py
 │   │   └── visualizations.py
-│   ├── models/                 # Model building, training, & evaluation
+│   ├── models/                 # Model training, evaluation, & comparison
 │   │   ├── compare.py
 │   │   ├── evaluate.py
 │   │   ├── models.py
 │   │   └── train.py
-│   ├── prediction/             # Inference engine
+│   ├── prediction/             # Inference engine for No-Show risk calculation
 │   │   └── predictor.py
 │   ├── preprocessing/          # Cleaning, scaling, & encoding pipelines
 │   │   ├── cleaning.py
 │   │   ├── encoding.py
 │   │   ├── pipeline.py
 │   │   └── scaling.py
-│   └── xai/                    # SHAP feature importance & explainability
+│   └── xai/                    # SHAP feature importance & explainability engines
 │       ├── feature_importance.py
 │       └── shap_explainer.py
 ├── .gitignore                  # Git ignore configuration
-├── LICENSE                     # Project license
-├── README.md                   # Project documentation
-└── requirements.txt            # Python dependencies
+├── LICENSE                     # Project MIT License
+├── README.md                   # Complete project documentation
+└── requirements.txt            # Python dependencies manifest
 ```
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category | Tools & Libraries |
+| Category | Technologies & Libraries |
 |---|---|
 | **Language** | Python 3.10+ |
 | **Data Manipulation** | Pandas, NumPy |
-| **Data Visualization** | Matplotlib, Seaborn |
 | **Machine Learning** | Scikit-Learn, Joblib |
 | **Explainable AI** | SHAP |
+| **Data Visualization** | Matplotlib, Seaborn |
 | **Web Dashboard** | Streamlit |
 | **Environment** | Jupyter Notebook, VS Code |
 | **Version Control** | Git, GitHub |
@@ -228,7 +241,7 @@ git clone https://github.com/N3Edirisinghe/Smartcare-Ai-Risk-Prediction-.git
 cd Smartcare-Ai-Risk-Prediction-
 ```
 
-### 3️⃣ Setup Environment
+### 3️⃣ Setup Virtual Environment
 
 ```bash
 # Create virtual environment
@@ -249,25 +262,27 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Running the Web App
+## 🚀 Running the Streamlit Prototype
 
-Launch the interactive Streamlit clinical prediction dashboard:
+Launch the interactive patient appointment no-show prediction dashboard:
 
 ```bash
 streamlit run app/app.py
 ```
 
+Open your web browser at `http://localhost:8501` to test real-time no-show risk inference.
+
 ---
 
 ## 👥 Project Team
 
-| Student ID | Contributor | GitHub Profile | Primary Responsibility |
+| Student ID | Contributor | GitHub Profile | Primary Task Responsibility |
 |---|---|---|---|
-| **CIT-23-02-0021** | Nilupul Thisaranga | [@N3Edirisinghe](https://github.com/N3Edirisinghe) | Model Evaluation & Selection |
-| **CIT-23-02-0025** | Siluna Nusal | [@GitGuru29](https://github.com/GitGuru29) | Explainable AI (XAI) & Prototype |
-| **CIT-23-02-0042** | Dulani Madubashini | [@cobweb-sudo](https://github.com/cobweb-sudo) |Exploratory Data Analysis (EDA)|
-| **CIT-23-02-0127** | Kaveesha Dilshan | [@Kaveesha23dil](https://github.com/Kaveesha23dil) | Data Preprocessing & Feature Engineering |
-| **CIT-23-02-0359** | Zumra Hassan | [@Zumrahassan222](https://github.com/Zumrahassan222) |Model Development & Tuning |
+| **CIT-23-02-0021** | **Nilupul Thisaranga** | [@N3Edirisinghe](https://github.com/N3Edirisinghe) | **Model Evaluation & Selection (Task 06)** |
+| **CIT-23-02-0025** | **Siluna Nusal** | [@GitGuru29](https://github.com/GitGuru29) | **Explainable AI (XAI) & Prototype** |
+| **CIT-23-02-0042** | **Dulani Madubashini** | [@cobweb-sudo](https://github.com/cobweb-sudo) | **Exploratory Data Analysis (EDA)** |
+| **CIT-23-02-0127** | **Kaveesha Dilshan** | [@Kaveesha23dil](https://github.com/Kaveesha23dil) | **Data Preprocessing & Feature Engineering** |
+| **CIT-23-02-0359** | **Zumra Hassan** | [@Zumrahassan222](https://github.com/Zumrahassan222) | **Model Development & Tuning** |
 
 ---
 
