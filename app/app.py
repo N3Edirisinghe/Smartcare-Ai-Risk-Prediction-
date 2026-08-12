@@ -799,21 +799,7 @@ if predict:
                 use_container_width=True
             )
 
-
-        # ====================================================
-        # DISCLAIMER
-        # ====================================================
-
-        st.warning(
-            """
-            **Important:** This is an academic prototype.
-            The prediction is a machine-learning estimate and
-            should not be treated as a medical diagnosis or as
-            a replacement for professional healthcare judgement.
-            """
-        )
-
-
+    
     except Exception as e:
 
         st.error(
