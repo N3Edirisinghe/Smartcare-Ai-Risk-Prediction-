@@ -16,6 +16,7 @@ An end-to-end Machine Learning system engineered to classify hospital patients i
 - [Key Features](#-key-features)
 - [Problem Statement](#-problem-statement)
 - [Dataset Overview](#-dataset-overview)
+- [Task 06 — Model Evaluation & Selection](#-task-06--model-evaluation--selection-results)
 - [System Architecture](#-system-architecture)
 - [Project Structure](#-project-structure)
 - [Tech Stack](#-tech-stack)
@@ -68,6 +69,39 @@ The dataset encompasses 1,000 patient records structured across 4 primary domain
 | 💳&nbsp;**Financial&nbsp;Attributes** | Consultation Charges, Lab Charges, Room Charges, Medicine Charges, Total Bill Amount |
 
 *Note: Raw dataset files belong under `data/raw/` (unversioned).*
+
+---
+
+## 📈 Task 06 — Model Evaluation & Selection Results
+
+In **Task 06**, a comprehensive performance assessment and comparative evaluation were conducted across three classification models (**Logistic Regression**, **Decision Tree**, and **Random Forest**).
+
+### 1️⃣ Performance Comparison Table
+
+| Model | Accuracy (%) | Precision (%) | Recall (%) | F1 Score (%) | ROC-AUC (%) | Status / Selection |
+|---|---|---|---|---|---|---|
+| 🏆 **Logistic Regression** | **50.62%** | **50.00%** | **40.51%** | **44.76%** | **54.85%** | **Selected Best Model** |
+| 🌲 **Decision Tree** | 52.50% | 52.73% | 36.71% | 43.28% | 49.99% | Evaluated |
+| 🌳 **Random Forest** | 48.75% | 47.37% | 34.18% | 39.71% | 50.16% | Evaluated |
+
+### 2️⃣ Selected Model & Justification
+- **Best Model:** `Logistic Regression` (Saved as [`models/best_model.pkl`](models/best_model.pkl))
+- **Selection Criteria:** Evaluated based on **F1 Score** (0.4476 / 44.76%) and **ROC-AUC** (0.5485 / 54.85%), delivering the optimal balance between precision and recall while achieving the highest discriminative power under the ROC curve.
+
+### 3️⃣ Selected Model Hyperparameters
+| Model | Selected Hyperparameters |
+|---|---|
+| **Logistic Regression** | `max_iter=1000, random_state=42` |
+| **Decision Tree** | `max_depth=10, min_samples_split=5, min_samples_leaf=2, random_state=42` |
+| **Random Forest** | `n_estimators=200, max_depth=15, min_samples_split=5, min_samples_leaf=2, random_state=42` |
+
+### 4️⃣ Task 06 Deliverables & Artifacts
+- 📓 **Jupyter Notebook:** [`notebooks/03_Model-Evaluation-&-Selection.ipynb`](notebooks/03_Model-Evaluation-&-Selection.ipynb) / [`notebooks/Task_06_Model_Evaluation.ipynb`](notebooks/Task_06_Model_Evaluation.ipynb)
+- 💾 **Best Model Artifact:** [`models/best_model.pkl`](models/best_model.pkl)
+- 📊 **Evaluation CSV Reports:**
+  - [`reports/task06_evaluation_results.csv`](reports/task06_evaluation_results.csv)
+  - [`reports/task06_evaluation_percentage.csv`](reports/task06_evaluation_percentage.csv)
+  - [`reports/task06_hyperparameter_summary.csv`](reports/task06_hyperparameter_summary.csv)
 
 ---
 
