@@ -27,16 +27,17 @@ st.set_page_config(
 # FILE PATHS
 # ============================================================
 
-MODEL_PATH = (
-    "/content/drive/MyDrive/"
-    "smartcare -ai/xai/best_model.pkl"
-)
+# Search relative project root or Colab Drive paths
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+LOCAL_MODEL = os.path.join(BASE_DIR, "models", "best_model.pkl")
+LOCAL_DATA = os.path.join(BASE_DIR, "data", "processed", "smartcare_final_preprocessed_dataset.csv")
 
-DATA_PATH = (
-    "/content/drive/MyDrive/"
-    "smartcare -ai/xai/"
-    "smartcare_final_preprocessed_dataset.csv"
-)
+DRIVE_MODEL = "/content/drive/MyDrive/smartcare -ai/xai/best_model.pkl"
+DRIVE_DATA = "/content/drive/MyDrive/smartcare -ai/xai/smartcare_final_preprocessed_dataset.csv"
+
+MODEL_PATH = LOCAL_MODEL if os.path.exists(LOCAL_MODEL) else DRIVE_MODEL
+DATA_PATH = LOCAL_DATA if os.path.exists(LOCAL_DATA) else DRIVE_DATA
+
 
 
 # ============================================================
